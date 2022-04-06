@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Food Order App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## `Summary`
 
-## Available Scripts
+In this Summary, the highlights of the project are mentioned. Corresponding documents can be investigated for further details.
 
-In the project directory, you can run:
+The project consists of 4 main components and a ContextAPI store.
 
-### `npm start`
+1. Components
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   - Cart
+   - Layout
+   - Meals
+   - UI
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Store
 
-### `npm test`
+### `Cart`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In CartIcon.js implementation of an `SVG` icon can be found.
 
-### `npm run build`
+Note 1: In Cart.js `styles["dashed-classname"]` is used since for dashed names styles.dashed-classname is not a valid usage.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Layout`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In HeaderCartButton.js the `useEffect()` hook is utilized to create a `bump animation`. In same JS document, built in browser functions are used such as `setTimeout()` and `clearTimeout()`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Meals`
 
-### `npm run eject`
+In Meals.js the `<React.Fragment>` is utilized for optimization since <div> is an unnecessary workload if there are tons of them. In AvailableMeals.js the `array.map()` is used to have a list of items. In MealItem.js the `useContext()` hook is utilized to reach the cart context and update it. In MealItemForm.js, the `useState()` hook is used to control if the form is valid. Also, with the help of the `&&` operator, a `Dynamic UI` is created.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Note 2: `toFixed(number)` gives that number of digits after the decimal point.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `UI`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+In Modal.js `ReactDOM.createPortal()` feature is used by also manipulating the index.html . In Input.js `React.forwardRef()` is utilized to reach the final input instead of tracking every keystroke by `onChange`. In Card.js `Dynamic Classes` are introduced to use Card throughout the app.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### `Store`
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In cart-context.js a ContextAPI is created to reduce the workload of `props`, in the process `React.createContext()`is utilized. In the ContextProvider.js, the `useReducer()` hook is utilized to manage the 'REMOVE' and 'ADD' operations together.
